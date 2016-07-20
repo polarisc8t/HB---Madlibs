@@ -30,6 +30,7 @@ def game():
     """User responds yes or no to playing a game."""
 
     decision = request.args.get("game")
+    print decision
 
     if decision == 'no':
         return render_template("goodbye.html")
