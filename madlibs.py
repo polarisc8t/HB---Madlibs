@@ -30,7 +30,6 @@ def game():
     """User responds yes or no to playing a game."""
 
     decision = request.args.get("game")
-    print decision
 
     if decision == 'no':
         return render_template("goodbye.html")
@@ -54,6 +53,18 @@ def greet_person():
     return render_template("compliment.html",
                            person=player,
                            compliment=compliment)
+
+@app.route('/madlib')
+def show_madlibs():
+    """Prompt user for game."""
+
+    chrome_selection = request.args.get("color")
+    noun_selection = request.args.get("noun")
+    adjective_selection = request.args.get("adjective")
+    person_selection = request.args.get("person")
+
+    return render_template("madlibs.html", person=person_selection, color=chrome_selection,
+                                            adjective=adjective_selection, noun=noun_selection)
 
 
 if __name__ == '__main__':
